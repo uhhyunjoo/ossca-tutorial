@@ -52,3 +52,26 @@ git log --oneline -3
 ```
 git commit --amend
 ```
+
+- 다른 사람의 작업이 먼저 merge 된 경우
+- maintainer 가 내 PR예 댓글로 `plz rebase` 라고 할 것이다. (내꺼 merge 하려고 할 때 ㅇㅇㅇ)
+- rebase 라는 용어 자체를 `rebase` 명령어 자체로 생각하지 말고, 보다 포괄적인 의미로 생각해야한다.
+- rebase == 베이스 업데이트
+
+- 프로젝트 운영자 vs 프로젝트 참여자 : 이 입장에서, rebase 를 다르게 고려한다.
+- 운영자 : rebase 라는 것을 관점으로, 어떻게 운영할까
+- 참여자 : 입장에서는 base 가 바뀐다는 개념을 알고 있어야한다.
+  - 그래서, upstream 을 remote 로 추가했던 것임 ㅇㅇ
+
+
+```
+git fetch upstream master # upstream/master 내부 브랜치 자동 생성됨
+git rebase upstream/master # 1단계-2단계-3단계 한 번에 실행된다
+git rebase =i , ==interactive # 되감기 기능
+```
+
+- git history == commit (블록) 들이 쌓인다.
+
+- 10 개의 commit 을 제출했는데, 리뷰 받았을떄...
+  - 1번 commit 은 버리고, 2번 commit 은 너무 크니까 여러 개로 쪼개고 ... 그렇게해주세용
+  - 오픈소스 == 협업이 본질 == `git rebase -i` 가 필요할 것임~ (초보 떄는 말고 ㅇㅇ)
