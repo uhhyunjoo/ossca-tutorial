@@ -155,3 +155,86 @@ Date:   Tue Jun 7 06:19:40 2022 +0000
 
     PR test
 ```
+
+- git config 설정
+```
+# 다른(사람) GitHub 계정과의 충돌방지
+$ git config --global --unset credential.helper
+$ git config --system --unset credential.helper
+
+# GitHub 계정 이메일 주소 및 본인영문이름
+# 차후 소스코드 파일수정 내역(commit) 저자(author)정보  
+$ git config --global user.email "본인메일적으세요"
+$ git config --global user.name "본인이름적으세요"
+
+# Git commit(소스파일 수정내역) message(설명글) 수정할 기본 편집기 설정 
+# 원하는 편집기 설정가능 (vim, emacs, nano, notepad 등)
+$ git config --global core.editor nano
+
+# nano 편집기 사용시 설치 필요
+$ sudo apt install -y nano
+```
+
+```
+$ git config --list
+user.email=alro923@naver.com
+user.name=alro923
+core.editor=nano
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/alro923/pytorch-example.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+```
+
+```
+git checkout -b fix-mnist
+git branch
+git checkout fix-mnist
+git checkout master # 서로 다른 환경
+```
+![image](https://user-images.githubusercontent.com/41139770/179336170-12a0f2e2-4e7d-4f68-b9a6-5a05c43c7d2e.png)
+
+```
+git branch -D fix-mnist
+```
+
+- 브랜치 명칭은 무엇으로 하는 게 좋을까?
+
+```
+nano mnist/main.py # epochs 에서 default 값을 10에서 14 로 바꿈
+```
+- `ctrl` + `o`, `enter`, `ctrl` + `x`
+
+![image](https://user-images.githubusercontent.com/41139770/179336746-ec47482a-0a3d-4de4-901e-de564adb30a2.png)
+
+```
+git add mnist/main.py
+git commit -m 'Correct typo in default value within help'
+```
+
+![image](https://user-images.githubusercontent.com/41139770/179336852-8d4a21a6-6717-493d-8284-055ea876c3e6.png)
+
+![image](https://user-images.githubusercontent.com/41139770/179337258-cffe0e98-d538-4dc8-9074-057d1eb8c4f7.png)
+
+![image](https://user-images.githubusercontent.com/41139770/179337352-67666e10-392d-4c57-883b-ddae0e2b82da.png)
+
+
+![image](https://user-images.githubusercontent.com/41139770/179337475-90feceb8-7e3b-417f-a29d-cb2d5e4ccf10.png)
+
+![image](https://user-images.githubusercontent.com/41139770/179337491-c235075b-b1b3-45a1-b8c9-b854e115248e.png)
+
+- workflow 만 체크해서 generate token
+- 바로 복붙해서 user name 에 입력
+- password 는 그냥 엔터
+
+![image](https://user-images.githubusercontent.com/41139770/179337682-adf73931-7d25-4e9c-9b3d-e99a1bb2438a.png)
+
+![image](https://user-images.githubusercontent.com/41139770/179337685-d0b6dae8-43c7-419d-9d3f-f605d3b40570.png)
+
+![image](https://user-images.githubusercontent.com/41139770/179337689-015d5627-0faa-4f29-b321-af0539b7b54f.png)
+
+![image](https://user-images.githubusercontent.com/41139770/179337698-2162317c-fec7-4585-8f09-beee86b3ef8e.png)
